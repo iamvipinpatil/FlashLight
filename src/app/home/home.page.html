@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      <!-- <ion-icon color="success" name="battery-charging-outline"  *ngIf="isPlugged"></ion-icon>
+      <ion-icon color="success"  name="battery-half-outline" *ngIf="batteryStatusDisplay > 30 && !isPlugged"></ion-icon>
+      <ion-icon color="warning" name="battery-half-outline" *ngIf="batteryStatusDisplay > 15 && batteryStatusDisplay <= 30 !isPlugged"></ion-icon>
+      <ion-icon color="danger" name="battery-dead-outline" *ngIf="batteryStatusDisplay <= 15 && !isPlugged"></ion-icon>
+
+      <ion-badge color="success" *ngIf="(batteryStatusDisplay > 30 && !isPlugged) || isPlugged">{{batteryStatusDisplay}}</ion-badge>
+      <ion-badge color="warning" *ngIf="batteryStatusDisplay > 15 && batteryStatusDisplay <= 30 && !isPlugged">{{batteryStatusDisplay}}</ion-badge>
+      <ion-badge color="danger" *ngIf="batteryStatusDisplay <= 15 && !isPlugged">{{batteryStatusDisplay}}</ion-badge> -->
+
+      <ion-chip outline color="success" *ngIf="isPlugged">
+        <ion-icon name="battery-charging-outline"></ion-icon>
+        <ion-label >{{batteryStatusDisplay}}%</ion-label>
+      </ion-chip>
+      <ion-chip outline color="success" *ngIf="batteryStatusDisplay > 75 && !isPlugged">
+        <ion-icon name="battery-full-outline"></ion-icon>
+        <ion-label >{{batteryStatusDisplay}}%</ion-label>
+      </ion-chip>
+      <ion-chip outline color="success" *ngIf="batteryStatusDisplay <= 75 && batteryStatusDisplay > 30 && !isPlugged">
+        <ion-icon name="battery-half-outline"></ion-icon>
+        <ion-label >{{batteryStatusDisplay}}%</ion-label>
+      </ion-chip>
+      <ion-chip outline color="warning" *ngIf="batteryStatusDisplay > 15 && batteryStatusDisplay <= 30 !isPlugged">
+        <ion-icon name="battery-half-outline"></ion-icon>
+        <ion-label >{{batteryStatusDisplay}}%</ion-label>
+      </ion-chip>
+      <ion-chip outline color="danger" *ngIf="batteryStatusDisplay <= 15 && !isPlugged">
+        <ion-icon name="battery-dead-outline"></ion-icon>
+        <ion-label >{{batteryStatusDisplay}}%</ion-label>
+      </ion-chip>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <img src="assets/icon/start_flashlight.png" style="height : 30vh" (click)="onFlashlight()" *ngIf="isTorch">
+    <img src="assets/icon/stop_flashlight.png" style="height : 30vh" (click)="offFlashlight()" *ngIf="!isTorch">
+  </div>
+</ion-content>
